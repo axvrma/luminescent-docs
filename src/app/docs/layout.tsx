@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { DocsSidebar } from '../../components/DocsSidebar';
-import { Button } from '../../components/luminescent-client';
+import { Button, Divider } from '../../components/luminescent-client';
 import styles from './layout.module.css';
 
 export default function DocsLayout({ children }: { children: React.ReactNode }) {
@@ -31,7 +31,15 @@ export default function DocsLayout({ children }: { children: React.ReactNode }) 
         <DocsSidebar />
         
         <main className={styles.content}>
+          <div className={styles.topDivider}>
+            <Divider orientation="horizontal" color="#ffaa66" glowDirection="bottom" />
+          </div>
+          
           {children}
+          
+          <div className={styles.bottomDivider}>
+            <Divider orientation="horizontal" color="#ffaa66" glowDirection="top" />
+          </div>
         </main>
       </div>
     </div>

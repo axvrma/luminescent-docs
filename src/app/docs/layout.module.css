@@ -73,7 +73,7 @@
 
 .content {
   flex: 1;
-  padding: 3rem 4rem;
+  padding: 0 4rem;
   max-width: 1000px;
 }
 
@@ -101,6 +101,18 @@
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   z-index: 80;
+}
+
+.topDivider {
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto 1.5rem;
+}
+
+.bottomDivider {
+  max-width: 800px;
+  width: 100%;
+  margin: 4rem auto 0;
 }
 
 @media (max-width: 768px) {
@@ -155,9 +167,17 @@
   }
 
   .content {
-    padding: 2rem 1.5rem;
+    padding: 0 1rem;
   }
   
+  .topDivider {
+    margin: 0 auto 1rem;
+  }
+
+  .bottomDivider {
+    margin: 2rem auto 0;
+  }
+
   .headerNav {
     margin-right: 40px;
   }
