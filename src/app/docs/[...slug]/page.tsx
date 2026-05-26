@@ -4,8 +4,7 @@ import matter from 'gray-matter';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import { notFound } from 'next/navigation';
 import styles from '../docs.module.css';
-import { Button, Divider, FloatingMenu, RadioGroup, ScreenReveal, SegmentedControl, TextField } from '../../../components/luminescent-client';
-import { CodeBlock } from '../../../components/CodeBlock';
+import { Button, Divider, FloatingMenu, RadioGroup, ScreenReveal, SegmentedControl, TextField, CodeBlock } from '../../../components/luminescent-client';
 
 const components = {
   Button,
