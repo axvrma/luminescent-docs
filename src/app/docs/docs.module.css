@@ -95,6 +95,9 @@
   border-collapse: collapse;
   margin: 2rem 0;
   font-size: 0.95rem;
+  display: block;
+  overflow-x: auto;
+  white-space: nowrap;
 }
 
 .prose th, .prose td {

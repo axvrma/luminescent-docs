@@ -71,3 +71,33 @@
   padding: 3rem 4rem;
   max-width: 1000px;
 }
+
+@media (max-width: 768px) {
+  .mainContainer {
+    flex-direction: column;
+  }
+  
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: static;
+    border-right: none;
+    border-bottom: 1px solid var(--sidebar-border);
+    padding: 1.5rem;
+  }
+
+  .nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .navGroup {
+    margin-bottom: 0;
+    min-width: 140px;
+  }
+
+  .content {
+    padding: 2rem 1.5rem;
+  }
+}
