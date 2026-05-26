@@ -1,66 +1,69 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+"use client";
+
+import Link from 'next/link';
+import { Button, Divider, ScreenReveal } from '../components/luminescent-client';
+import styles from './page.module.css';
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.tsx file.</h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <main className={styles.main}>
+      <div className="luminescent-hero-bg" />
+      
+      <header className={styles.header}>
+        <div className={styles.logoContainer}>
+          <span className={styles.logo}>✨ Luminescent</span>
         </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+        <nav className={styles.nav}>
+          <Link href="/docs" className={styles.navLink}>Docs</Link>
+          <a href="https://github.com/axvrma/luminescent" target="_blank" rel="noopener noreferrer" className={styles.navLink}>GitHub</a>
+          <Link href="/docs/getting-started">
+            <Button variant="primary" size="sm">Get Started</Button>
+          </Link>
+        </nav>
+      </header>
+
+      <div className={styles.heroWrapper}>
+        <section className={styles.hero}>
+          <div style={{ textAlign: 'center', position: 'relative', zIndex: 10 }}>
+            <h1 className={styles.title}>
+              The Modern <span className="luminescent-gradient-text">React UI</span> Library
+            </h1>
+            <p className={styles.subtitle}>
+              Premium, highly-polished, and visually stunning React UI components tailored specifically for modern dark-mode applications.
+            </p>
+            
+            <div className={styles.actions}>
+              <Link href="/docs">
+                <Button size="lg" className={styles.primaryButton}>
+                  Explore Documentation
+                </Button>
+              </Link>
+              <div className={styles.codeSnippet}>
+                <code>npm install luminescent</code>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div style={{ maxWidth: '800px', width: '100%', margin: '0 auto', paddingBottom: '3rem' }}>
+          <Divider orientation="horizontal" color="#ffaa66" glowDirection="top" />
         </div>
-      </main>
-    </div>
+      </div>
+
+      <section className={styles.features}>
+        <div className={`glass-panel ${styles.featureCard}`}>
+          <h3>Dark Mode Native</h3>
+          <p>Built with modern dark-mode aesthetics out of the box, using OKLCH and glowing gradients.</p>
+        </div>
+        <div className={`glass-panel ${styles.featureCard}`}>
+          <h3>Accessible</h3>
+          <p>Carefully crafted following WAI-ARIA guidelines for keyboard navigation and screen readers.</p>
+        </div>
+        <div className={`glass-panel ${styles.featureCard}`}>
+          <h3>Framer Motion</h3>
+          <p>Beautiful micro-interactions and layout animations powered by Framer Motion.</p>
+        </div>
+      </section>
+    </main>
   );
 }
