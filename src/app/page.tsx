@@ -1,46 +1,78 @@
 "use client";
 
+import { useState } from 'react';
 import Link from 'next/link';
-import { Button, Divider, ScreenReveal } from '../components/luminescent-client';
+import Image from 'next/image';
+import { Button, Divider } from '../components/luminescent-client';
 import styles from './page.module.css';
 
 export default function Home() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
     <main className={styles.main}>
       <div className="luminescent-hero-bg" />
       
       <header className={styles.header}>
         <div className={styles.logoContainer}>
-          <span className={styles.logo}>✨ Luminescent</span>
-        </div>
-        <nav className={styles.nav}>
-          <Link href="/docs" className={styles.navLink}>Docs</Link>
-          <a href="https://github.com/axvrma/luminescent" target="_blank" rel="noopener noreferrer" className={styles.navLink}>GitHub</a>
-          <Link href="/docs/getting-started">
-            <Button variant="primary" size="sm">Get Started</Button>
+          <Link href="/" className={styles.logo} style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+            <Image src="/logo.png" alt="Luminescent Logo" width={28} height={28} style={{ borderRadius: '6px' }} />
+            Luminescent
           </Link>
+        </div>
+        
+        {/* Mobile Hamburger Icon */}
+        <button 
+          className={styles.mobileMenuBtn} 
+          onClick={() => setIsMenuOpen(!isMenuOpen)} 
+          aria-label="Toggle menu"
+        >
+          {isMenuOpen ? (
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          ) : (
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          )}
+        </button>
+
+        <nav className={`${styles.nav} ${isMenuOpen ? styles.navOpen : ''}`}>
+          <a href="https://github.com/axvrma/luminescent" target="_blank" rel="noopener noreferrer" onClick={() => setIsMenuOpen(false)}>
+            <Button variant="primary" size="sm">
+              <span style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                GitHub
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+              </span>
+            </Button>
+          </a>
         </nav>
       </header>
 
       <div className={styles.heroWrapper}>
         <section className={styles.hero}>
           <div style={{ textAlign: 'center', position: 'relative', zIndex: 10 }}>
+            <p style={{ display: 'inline-block', padding: '4px 12px', background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '20px', fontSize: '0.85rem', marginBottom: '1.5rem', color: '#ffaa66' }}>v0.1.1 is live 🚀</p>
             <h1 className={styles.title}>
-              The Modern <span className="luminescent-gradient-text">React UI</span> Library
+              Build Stunning UIs with <span className="luminescent-gradient-text">Luminescent</span>
             </h1>
             <p className={styles.subtitle}>
-              Premium, highly-polished, and visually stunning React UI components tailored specifically for modern dark-mode applications.
+              A highly-polished React component library designed for the modern web. Featuring dynamic glassmorphism, fluid animations, and a rich dark-mode aesthetic.
             </p>
             
             <div className={styles.actions}>
               <Link href="/docs">
                 <Button size="lg" className={styles.primaryButton}>
-                  Explore Documentation
+                  <span style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    Explore Documentation
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                  </span>
                 </Button>
               </Link>
-              <div className={styles.codeSnippet}>
-                <code>npm install luminescent</code>
-              </div>
             </div>
           </div>
         </section>

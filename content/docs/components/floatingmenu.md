@@ -5,11 +5,27 @@ description: "A sleek, sticky or absolute positioned floating menu."
 
 The `FloatingMenu` component is a glass-morphism panel designed for quick actions or navigation links that float above the content.
 
-## Interactive Preview
+## Default
 
 <Preview>
-  <div style={{ minHeight: '200px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-    <FloatingMenu items='[{"label":"Home","href":"#"},{"label":"About","href":"#"},{"label":"Settings","href":"#"}]' />
+  <div style={{ minHeight: '150px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+    <FloatingMenu items={[{ id: '1', label: 'Home', href: '#' }, { id: '2', label: 'About', href: '#' }, { id: '3', label: 'Settings', href: '#' }]} />
+  </div>
+</Preview>
+
+## White Glow
+
+<Preview>
+  <div style={{ minHeight: '150px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+    <FloatingMenu glowColor="white" items={[{ id: '1', label: 'Home', href: '#' }, { id: '2', label: 'Profile', href: '#' }, { id: '3', label: 'Logout', href: '#' }]} />
+  </div>
+</Preview>
+
+## Top Glow
+
+<Preview>
+  <div style={{ minHeight: '150px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+    <FloatingMenu glowColor="peach" glowPosition="top" items={[{ id: '1', label: 'Projects', href: '#' }, { id: '2', label: 'Tasks', href: '#' }, { id: '3', label: 'Team', href: '#' }]} />
   </div>
 </Preview>
 

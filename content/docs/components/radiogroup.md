@@ -5,11 +5,19 @@ description: "A highly accessible radio button group with custom styling."
 
 The `RadioGroup` component provides a styled, keyboard-accessible list of mutually exclusive options.
 
-## Interactive Preview
+## Default
 
 <Preview>
   <div style={{ padding: '1rem' }}>
-    <RadioGroup name="fruit" value="apple" options='[{"value":"apple","label":"Apple"},{"value":"banana","label":"Banana"},{"value":"cherry","label":"Cherry"}]' />
+    <RadioGroup name="plan" value="pro" options={[{ value: 'starter', label: 'Starter Plan', description: 'Perfect for small side projects.' }, { value: 'pro', label: 'Pro Plan', description: 'For power users and scaling apps.' }, { value: 'enterprise', label: 'Enterprise', description: 'Custom limits and dedicated support.' }]} />
+  </div>
+</Preview>
+
+## Horizontal Discrete
+
+<Preview>
+  <div style={{ padding: '1rem' }}>
+    <RadioGroup name="layout" value="pro" layout="horizontal" indicatorAnimation="fade" options={[{ value: 'starter', label: 'Starter' }, { value: 'pro', label: 'Pro' }, { value: 'enterprise', label: 'Enterprise' }]} />
   </div>
 </Preview>
 

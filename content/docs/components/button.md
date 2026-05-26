@@ -5,10 +5,26 @@ description: "A premium, glowing interactive button component."
 
 The `Button` component is designed to draw attention with its luminescent hover effects and sleek, dark-mode-first aesthetic.
 
-## Interactive Preview
+## Primary
 
 <Preview>
-  <Button variant="primary" size="lg">Click Me</Button>
+  <Button variant="primary">Schedule a call</Button>
+</Preview>
+
+## Secondary
+
+<Preview>
+  <Button variant="secondary">Contact us</Button>
+</Preview>
+
+## Sizes
+
+<Preview>
+  <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+    <Button variant="primary" size="sm">Small</Button>
+    <Button variant="primary" size="md">Medium</Button>
+    <Button variant="primary" size="lg">Large</Button>
+  </div>
 </Preview>
 
 ## Usage

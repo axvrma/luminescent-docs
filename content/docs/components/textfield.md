@@ -5,11 +5,27 @@ description: "A beautifully styled text input with focus animations."
 
 The `TextField` component provides a glowing focus state and seamless dark-mode integration.
 
-## Interactive Preview
+## Light Glow
 
 <Preview>
-  <div style={{ maxWidth: '300px', margin: '0 auto', width: '100%' }}>
-    <TextField placeholder="Enter your email" />
+  <div style={{ width: '100%', maxWidth: '400px', margin: '0 auto' }}>
+    <TextField placeholder="Enter your email address..." glowVariant="light" />
+  </div>
+</Preview>
+
+## Peach Glow
+
+<Preview>
+  <div style={{ width: '100%', maxWidth: '400px', margin: '0 auto' }}>
+    <TextField placeholder="Enter your email address..." glowVariant="peach" />
+  </div>
+</Preview>
+
+## Comet Glow
+
+<Preview>
+  <div style={{ width: '100%', maxWidth: '400px', margin: '0 auto' }}>
+    <TextField placeholder="Search the cosmos..." glowVariant="comet" />
   </div>
 </Preview>
 

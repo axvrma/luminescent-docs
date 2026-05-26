@@ -5,6 +5,7 @@ import { MDXRemote } from 'next-mdx-remote/rsc';
 import { notFound } from 'next/navigation';
 import styles from '../docs.module.css';
 import { Button, Divider, FloatingMenu, RadioGroup, ScreenReveal, SegmentedControl, TextField } from '../../../components/luminescent-client';
+import { CodeBlock } from '../../../components/CodeBlock';
 
 const components = {
   Button,
@@ -14,6 +15,7 @@ const components = {
   ScreenReveal,
   SegmentedControl,
   TextField,
+  pre: CodeBlock,
   Preview: ({ children }: { children: React.ReactNode }) => (
     <div className={styles.componentPreview}>
       {children}
