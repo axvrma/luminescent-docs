@@ -52,13 +52,9 @@
 }
 
 .prose pre {
-  background: #111;
   color: #ededed;
-  padding: 1.25rem;
-  border-radius: 8px;
   overflow-x: auto;
   margin-bottom: 1.5rem;
-  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 
