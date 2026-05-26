@@ -3,11 +3,44 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Button, Divider } from '../components/luminescent-client';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Button, Divider, SegmentedControl } from '../components/luminescent-client';
 import styles from './page.module.css';
+
+import { Highlight, themes } from 'prism-react-renderer';
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeTab, setActiveTab] = useState('Install');
+  const [copied, setCopied] = useState(false);
+
+  const tabData: Record<string, { title: string; description: string; code: string; language: string }> = {
+    'Install': {
+      title: 'Quick Installation',
+      description: 'Get started in seconds by adding Luminescent to your project.',
+      code: 'npm install luminescent\n# or\nyarn add luminescent',
+      language: 'bash'
+    },
+    'Configure': {
+      title: 'Simple Configuration',
+      description: 'Luminescent requires zero configuration out of the box. Just import and use.',
+      code: 'import { Button } from "luminescent";\n\nfunction App() {\n  return <Button glowColor="peach">Click Me</Button>;\n}',
+      language: 'tsx'
+    },
+    'Build': {
+      title: 'Build Beautifully',
+      description: 'Craft stunning interfaces with dark-mode native components.',
+      code: '<div className="luminescent-hero-bg">\n  <SegmentedControl tabs={["Design", "Develop", "Deploy"]} />\n</div>',
+      language: 'tsx'
+    }
+  };
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(tabData[activeTab].code).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    });
+  };
 
   return (
     <main className={styles.main}>
@@ -74,6 +107,68 @@ export default function Home() {
                 </Button>
               </Link>
             </div>
+          </div>
+        </section>
+
+        {/* Interactive Tabs Showcase */}
+        <section style={{ maxWidth: '800px', margin: '0 auto 4rem', width: '100%', padding: '0 1rem', display: 'flex', flexDirection: 'column', alignItems: 'center', zIndex: 10, position: 'relative' }}>
+          <SegmentedControl 
+            tabs={['Install', 'Configure', 'Build']} 
+            defaultActiveTab="Install"
+            onChange={(tab: string) => {
+              setActiveTab(tab);
+              setCopied(false);
+            }}
+          />
+          
+          <div style={{ marginTop: '2rem', width: '100%', minHeight: '200px', position: 'relative' }}>
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeTab}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.2 }}
+                className="glass-panel"
+                style={{ padding: '2rem', width: '100%', border: '1px solid rgba(255,255,255,0.1)', position: 'relative' }}
+              >
+                <h3 style={{ fontSize: '1.25rem', fontWeight: 600, marginBottom: '0.5rem', color: '#fff' }}>
+                  {tabData[activeTab].title}
+                </h3>
+                <p style={{ opacity: 0.7, marginBottom: '1.5rem', fontSize: '0.95rem' }}>
+                  {tabData[activeTab].description}
+                </p>
+                
+                <div style={{ position: 'relative' }}>
+                  <button 
+                    onClick={handleCopy}
+                    style={{ position: 'absolute', top: '12px', right: '12px', background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '6px', padding: '6px', cursor: 'pointer', zIndex: 20, color: copied ? '#4ade80' : '#a3a3a3', transition: 'all 0.2s ease' }}
+                    aria-label="Copy code"
+                  >
+                    {copied ? (
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    ) : (
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                    )}
+                  </button>
+                  <Highlight theme={themes.nightOwl} code={tabData[activeTab].code} language={tabData[activeTab].language}>
+                    {({ className, style, tokens, getLineProps, getTokenProps }) => (
+                      <pre className={`${styles.codeSnippet} ${className}`} style={{ ...style, textAlign: 'left', overflowX: 'auto', paddingTop: '1.25rem', paddingBottom: '1.25rem' }}>
+                        <code>
+                          {tokens.map((line, i) => (
+                            <div key={i} {...getLineProps({ line })}>
+                              {line.map((token, key) => (
+                                <span key={key} {...getTokenProps({ token })} />
+                              ))}
+                            </div>
+                          ))}
+                        </code>
+                      </pre>
+                    )}
+                  </Highlight>
+                </div>
+              </motion.div>
+            </AnimatePresence>
           </div>
         </section>
 

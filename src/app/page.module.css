@@ -206,6 +206,7 @@
     text-align: center;
   }
   .features {
+    grid-template-columns: 1fr;
     padding: 0 1rem 4rem;
   }
   .featureCard {

@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { DocsSidebar } from '../../components/DocsSidebar';
+import { Button } from '../../components/luminescent-client';
 import styles from './layout.module.css';
 
 export default function DocsLayout({ children }: { children: React.ReactNode }) {
@@ -13,6 +14,17 @@ export default function DocsLayout({ children }: { children: React.ReactNode }) 
             Luminescent
           </Link>
         </div>
+        
+        <nav className={styles.headerNav}>
+          <a href="https://github.com/axvrma/luminescent" target="_blank" rel="noopener noreferrer">
+            <Button variant="primary" size="sm">
+              <span style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                GitHub
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+              </span>
+            </Button>
+          </a>
+        </nav>
       </header>
       
       <div className={styles.mainContainer}>

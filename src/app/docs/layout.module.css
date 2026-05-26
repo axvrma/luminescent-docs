@@ -13,9 +13,7 @@
   border-bottom: 1px solid var(--header-border);
   position: sticky;
   top: 0;
-  background: var(--header-bg);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: #000000;
   z-index: 50;
 }
 
@@ -43,6 +41,7 @@
   top: 60px;
   height: calc(100vh - 60px);
   overflow-y: auto;
+  align-self: flex-start;
 }
 
 .navGroup {
@@ -157,5 +156,9 @@
 
   .content {
     padding: 2rem 1.5rem;
+  }
+  
+  .headerNav {
+    margin-right: 40px;
   }
 }
