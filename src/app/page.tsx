@@ -16,7 +16,7 @@ export default function Home() {
       <header className={styles.header}>
         <div className={styles.logoContainer}>
           <Link href="/" className={styles.logo} style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-            <Image src="/logo.png" alt="Luminescent Logo" width={28} height={28} style={{ borderRadius: '6px' }} />
+            <Image src="/logo-v2.png" alt="Luminescent Logo" width={28} height={28} style={{ borderRadius: '6px' }} />
             Luminescent
           </Link>
         </div>
