@@ -22,3 +22,18 @@ export const SegmentedControl = (props: any) => {
 export const FloatingMenu = (props: any) => {
   return <OriginalFloatingMenu {...props} items={safeParse(props.items, [{label: 'Fallback', href: '#'}])} />
 }
+
+import { ImagesBadge as OriginalImagesBadge } from 'luminescent';
+import { Timeline as OriginalTimeline } from 'luminescent';
+
+export const ImagesBadge = (props: any) => {
+  return <OriginalImagesBadge {...props} images={safeParse(props.images, [])} />
+}
+
+export const Timeline = (props: any) => {
+  const fallbackData = [
+    { title: "Version 1.0", content: "Initial release with the core luminescent components." },
+    { title: "Version 1.1", content: "Added the highly anticipated Timeline component with scroll-linked animations." }
+  ];
+  return <OriginalTimeline {...props} data={safeParse(props.data, fallbackData)} />
+}

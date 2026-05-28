@@ -7,12 +7,16 @@ import styles from '../app/docs/layout.module.css';
 
 const COMPONENTS = [
   'Button',
+  'ContainerTextFlip',
   'Divider',
   'FloatingMenu',
+  'ImagesBadge',
   'RadioGroup',
   'ScreenReveal',
   'SegmentedControl',
   'TextField',
+  'Timeline',
+  'Toggle',
 ];
 
 export function DocsSidebar() {
@@ -61,6 +65,11 @@ export function DocsSidebar() {
                 {comp}
               </Link>
             ))}
+          </div>
+          
+          <div className={styles.navGroup}>
+            <h4 className={styles.navTitle}>Examples</h4>
+            <Link href="/docs/examples/all-in-one" className={styles.navLink}>All-in-One</Link>
           </div>
         </nav>
       </aside>

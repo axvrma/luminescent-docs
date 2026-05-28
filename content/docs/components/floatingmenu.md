@@ -29,6 +29,18 @@ The `FloatingMenu` component is a glass-morphism panel designed for quick action
   </div>
 </Preview>
 
+## With Divider (Light Projection)
+
+<Preview>
+  <div style={{ minHeight: '250px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start', paddingTop: '2rem', position: 'relative' }}>
+    <FloatingMenu withDivider glowColor="peach" glowPosition="bottom" items={[{ id: '1', label: 'Docs', href: '#' }, { id: '2', label: 'Components', href: '#' }, { id: '3', label: 'Blog', href: '#' }]} />
+    <div style={{ marginTop: '3rem', maxWidth: '400px', textAlign: 'center', color: '#a1a1aa', zIndex: 0 }}>
+      <h3 style={{ color: '#fff', marginBottom: '0.5rem', fontWeight: 500 }}>Illuminated Content</h3>
+      <p>This text example demonstrates how the divider's down-illumination projects a subtle glowing light onto the content positioned below the floating menu.</p>
+    </div>
+  </div>
+</Preview>
+
 ## Usage
 
 ```tsx
@@ -52,3 +64,7 @@ export default function App() {
 |------|------|---------|-------------|
 | `items` | `{ label: string, href: string }[]` | `[]` | The items to display in the menu. |
 | `className` | `string` | `undefined` | Additional CSS classes. |
+| `glowColor` | `'white' \| 'peach'` | `'peach'` | The color of the glow effect. |
+| `glowPosition` | `'top' \| 'bottom'` | `'bottom'` | Whether the glow line appears at the top or bottom. |
+| `activeId` | `string` | `undefined` | The currently active item's ID (for controlled usage). |
+| `withDivider` | `boolean` | `false` | Renders a glowing divider below the menu to simulate light projection onto the content below. |

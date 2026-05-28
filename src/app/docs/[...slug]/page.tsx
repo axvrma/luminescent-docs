@@ -4,9 +4,11 @@ import matter from 'gray-matter';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import { notFound } from 'next/navigation';
 import styles from '../docs.module.css';
-import { Button, Divider, FloatingMenu, RadioGroup, ScreenReveal, SegmentedControl, TextField, CodeBlock } from '../../../components/luminescent-client';
+import { Button, Divider, FloatingMenu, RadioGroup, ScreenReveal, SegmentedControl, TextField, CodeBlock, Toggle, ContainerTextFlip, ImagesBadge, Timeline } from '../../../components/luminescent-client';
+import { InteractiveIntegrationForm } from '../../../components/InteractiveIntegrationForm';
 
 const components = {
+  InteractiveIntegrationForm,
   Button,
   Divider,
   FloatingMenu,
@@ -14,6 +16,11 @@ const components = {
   ScreenReveal,
   SegmentedControl,
   TextField,
+  Toggle,
+  CodeBlock,
+  ContainerTextFlip,
+  ImagesBadge,
+  Timeline,
   pre: CodeBlock,
   Preview: ({ children }: { children: React.ReactNode }) => (
     <div className={styles.componentPreview}>

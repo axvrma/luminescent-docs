@@ -4,7 +4,8 @@ import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Button, Divider, SegmentedControl } from './luminescent-client';
+import { Button, Divider, SegmentedControl, ImagesBadge } from './luminescent-client';
+import { InteractiveIntegrationForm } from './InteractiveIntegrationForm';
 import styles from '../app/page.module.css';
 
 interface HomeClientProps {
@@ -69,7 +70,7 @@ export function HomeClient({ installCode, configureCode, buildCode }: HomeClient
 
         <nav className={`${styles.nav} ${isMenuOpen ? styles.navOpen : ''}`}>
           <a href="https://github.com/axvrma/luminescent" target="_blank" rel="noopener noreferrer" onClick={() => setIsMenuOpen(false)}>
-            <Button variant="primary" size="sm">
+            <Button variant="secondary" size="sm">
               <span style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                 GitHub
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
@@ -82,7 +83,20 @@ export function HomeClient({ installCode, configureCode, buildCode }: HomeClient
       <div className={styles.heroWrapper}>
         <section className={styles.hero}>
           <div style={{ textAlign: 'center', position: 'relative', zIndex: 10 }}>
-            <p style={{ display: 'inline-block', padding: '4px 12px', background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '20px', fontSize: '0.85rem', marginBottom: '1.5rem', color: '#ffaa66' }}>v0.1.1 is live 🚀</p>
+            <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1.5rem' }}>
+              <ImagesBadge 
+                text="v0.1.1 is live 🚀" 
+                images={[
+                  "https://github.com/npm.png",
+                  "https://github.com/tailwindlabs.png",
+                  "https://github.com/framer.png"
+                ]}
+                size="sm"
+                textPosition="right"
+                href="https://www.npmjs.com/package/luminescent"
+                target="_blank"
+              />
+            </div>
             <h1 className={styles.title}>
               Build Stunning UIs with <span className="luminescent-gradient-text">Luminescent</span>
             </h1>
@@ -101,6 +115,15 @@ export function HomeClient({ installCode, configureCode, buildCode }: HomeClient
               </Link>
             </div>
           </div>
+        </section>
+
+        {/* Live Interactive Form Example */}
+        <section style={{ maxWidth: '900px', width: '100%', margin: '0 auto 4rem', position: 'relative', zIndex: 10 }}>
+          <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
+            <h2 style={{ color: 'white', fontSize: '1.5rem', fontWeight: 600 }}>All-in-One Component Showcase</h2>
+            <p style={{ color: '#a1a1aa', marginTop: '0.5rem' }}>Experience the power of Luminescent components combined.</p>
+          </div>
+          <InteractiveIntegrationForm view="desktop" />
         </section>
 
         {/* Interactive Tabs Showcase */}
