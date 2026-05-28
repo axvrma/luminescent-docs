@@ -70,12 +70,12 @@ export const InteractiveIntegrationForm = ({ view = 'mobile' }: { view?: 'mobile
             <div ref={scrollRef} style={{ position: 'relative', padding: isDesktop ? '2rem 3rem' : '1.5rem', paddingBottom: '3rem', background: '#121212', minHeight: '100%', display: 'flex', flexDirection: 'column', overflowY: 'auto' }}>
               <div style={{ display: 'flex', justifyContent: 'center', gap: '3rem', alignItems: 'center', marginBottom: '1.5rem' }}>
                 <ContainerTextFlip 
-                  initialText="Workspace" 
-                  hoverText="Settings" 
+                  words={["Workspace", "Settings"]} 
                   className="text-xl font-bold"
                   variant="primary"
                 />
                 <ImagesBadge 
+                  text="Integrations"
                   images={[
                     "https://github.com/shadcn.png",
                     "https://github.com/nextjs.png",
@@ -118,7 +118,7 @@ export const InteractiveIntegrationForm = ({ view = 'mobile' }: { view?: 'mobile
                 <div style={{ marginTop: '1rem' }}>
                   <label style={{ color: 'white', display: 'block', marginBottom: '1rem', fontSize: '0.875rem' }}>Setup Progress</label>
                   <Timeline 
-                    containerRef={scrollRef}
+                    containerRef={scrollRef as unknown as React.RefObject<HTMLElement>}
                     data={[
                       { title: 'Create Project', content: <div className="text-zinc-400">Initialize repository</div> },
                       { title: 'Invite Team', content: <div className="text-zinc-400">Add collaborators</div> },
@@ -207,12 +207,12 @@ export const InteractiveIntegrationForm = ({ view = 'mobile' }: { view?: 'mobile
                   <div ref={scrollRef} style={{ position: 'relative', padding: isDesktop ? '2rem 3rem' : '1.5rem', paddingBottom: '3rem', background: '#121212', minHeight: '100%', display: 'flex', flexDirection: 'column', overflowY: 'auto' }}>
                     <div style={{ display: 'flex', justifyContent: 'center', gap: '3rem', alignItems: 'center', marginBottom: '1.5rem' }}>
                       <ContainerTextFlip 
-                        initialText="Workspace" 
-                        hoverText="Settings" 
+                        words={["Workspace", "Settings"]} 
                         className="text-xl font-bold"
                         variant="primary"
                       />
                       <ImagesBadge 
+                        text="Integrations"
                         images={[
                           "https://github.com/shadcn.png",
                           "https://github.com/nextjs.png",
@@ -255,7 +255,7 @@ export const InteractiveIntegrationForm = ({ view = 'mobile' }: { view?: 'mobile
                       <div style={{ marginTop: '1rem' }}>
                         <label style={{ color: 'white', display: 'block', marginBottom: '1rem', fontSize: '0.875rem' }}>Setup Progress</label>
                         <Timeline 
-                          containerRef={scrollRef}
+                          containerRef={scrollRef as unknown as React.RefObject<HTMLElement>}
                           data={[
                             { title: 'Create Project', content: <div className="text-zinc-400">Initialize repository</div> },
                             { title: 'Invite Team', content: <div className="text-zinc-400">Add collaborators</div> },
